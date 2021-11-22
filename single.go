@@ -8,17 +8,18 @@ import (
 )
 
 var _ ILoader = new(singleLoader)
+
 func NewSingleLoader() ILoader {
 	return &singleLoader{
 		objs: make(map[interface{}]reflect.Value),
 	}
 }
 
-type singleLoader struct{
+type singleLoader struct {
 	objs map[interface{}]reflect.Value
 }
 
-func(s *singleLoader) Register(key interface{}, value interface{}) error {
+func (s *singleLoader) Register(key interface{}, value interface{}) error {
 	_, ok := s.objs[key]
 	if ok {
 		return errors.New(fmt.Sprintf("key duplicate: %v", key))
@@ -27,11 +28,11 @@ func(s *singleLoader) Register(key interface{}, value interface{}) error {
 	return nil
 }
 
-func(s *singleLoader) Replace(key interface{}, value interface{}) {
+func (s *singleLoader) Replace(key interface{}, value interface{}) {
 	s.objs[key] = reflect.ValueOf(value)
 }
 
-func(s *singleLoader) Get(key string) (interface{}, error) {
+func (s *singleLoader) Get(key string) (interface{}, error) {
 	v, ok := s.objs[key]
 	if ok {
 		return v.Interface(), nil
@@ -39,21 +40,22 @@ func(s *singleLoader) Get(key string) (interface{}, error) {
 	return nil, ErrNotFound
 }
 
-func(s *singleLoader) Remove(key string) {
+func (s *singleLoader) Remove(key string) {
 	delete(s.objs, key)
 }
 
-func(s *singleLoader) Clear() {
+func (s *singleLoader) Clear() {
 	s.objs = make(map[interface{}]reflect.Value)
 }
 
-func(s *singleLoader) LoadingAll() {
+func (s *singleLoader) LoadingAll() {
 	for _, v := range s.objs {
 		s.Loading(v)
 	}
 }
 
-func(s *singleLoader) Loading(v interface{}) {
+// 该方法会一层一层递归结构体，将结构体所有的列全部赋值（前提是load标签数据已加载在内存中）
+func (s *singleLoader) Loading(v interface{}) {
 	var value reflect.Value
 	var ok bool
 	if value, ok = v.(reflect.Value); !ok {

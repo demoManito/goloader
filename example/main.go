@@ -11,16 +11,19 @@ import (
 func main() {
 	// 1. 获取单例对象
 	loader := goloader.DefaultLoader()
-	// 2. 初始化
+	// 2. 将数据加载进入 loader
 	goloader.LoadingAll(loader)
 
+	// 基本使用方法
 	h := &Handle{}
-	//
+	// 3-1. 自动装载
+	// 将 loader 池中的值，赋值给变量 h
 	loader.Loading(h)
 	l, _ := json.Marshal(h.service.GetLoad())
 	fmt.Println(string(l))
 
-	// 直接获取
+	// 基本使用方法
+	// 3-2. 直接获取
 	inter, err := loader.Get("load.load")
 	if err != nil {
 		if err == goloader.ErrNotFound {
