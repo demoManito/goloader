@@ -1,7 +1,7 @@
 # goloader
 
 ## 简介
-goloader 是类似 Java SpringBoot 的 AutoWired 的 GoLang 版本的简单实现，可以自动装载变量.
+goloader 是类似 Java 的 AutoWired 的 GoLang 版本的简单实现，可以自动装载变量.
 
 
 ## 基本用法
