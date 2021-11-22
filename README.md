@@ -1,7 +1,7 @@
 # goloader
 
 ## 简介
-goloader 依赖注入的简单实现.
+GoLang依赖注入.
 
 
 ## 基本用法
