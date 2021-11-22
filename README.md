@@ -1,7 +1,7 @@
 # goloader
 
 ## 简介
-goloader 是类似 Java 的 @AutoWired 的 GoLang 版本的简单实现。实现自动装载变量.
+goloader 依赖注入的简单实现.
 
 
 ## 基本用法
