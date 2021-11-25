@@ -54,7 +54,7 @@ func (s *singleLoader) LoadingAll() {
 	}
 }
 
-// 该方法会一层一层递归结构体，将结构体所有的列全部赋值（前提是load标签数据已加载在内存中）
+// 装载结构体中依赖的字段
 func (s *singleLoader) Loading(v interface{}) {
 	var value reflect.Value
 	var ok bool

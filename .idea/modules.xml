@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../goinject/.idea/goinject.iml" filepath="$PROJECT_DIR$/../goinject/.idea/goinject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/goloader.iml" filepath="$PROJECT_DIR$/.idea/goloader.iml" />
     </modules>
   </component>
