@@ -17,19 +17,12 @@ func DefaultLoader() ILoader {
 }
 
 type ILoader interface {
-	// 注册
 	Register(key interface{}, value interface{}) error
-	// 替换
 	Replace(key interface{}, value interface{})
-	// 获取
 	Get(key string) (interface{}, error)
-	// 删除
 	Remove(key string)
-	// 加载所有注册变量
 	LoadingAll()
-	// 加载某结构体下变量
 	Loading(v interface{})
-	// 删除 loader 中所有数据
 	Clear()
 }
 
