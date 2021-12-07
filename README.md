@@ -1,5 +1,4 @@
 # goloader
-Welcome to thumb up
 
 ## 简介
 GoLang依赖注入.
