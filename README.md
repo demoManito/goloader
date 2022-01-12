@@ -1,4 +1,5 @@
 # goloader
+[![Travis](https://img.shields.io/badge/language-Go-red.svg)]()
 
 ## 简介
 GoLang依赖注入.
