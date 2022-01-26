@@ -1,5 +1,6 @@
 # goloader
-[![Travis](https://img.shields.io/badge/language-Go-red.svg)]()
+[![Travis](https://img.shields.io/badge/language-Go-red.svg)]()[![Travis](https://goreportcard.com/badge/github.com/demoManito/goloader)]()
+
 
 ## 简介
 GoLang依赖注入.
